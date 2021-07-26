@@ -11,14 +11,17 @@
 
 <script>
 
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   computed: {
     ...mapState(['jokes'])
   },
   methods: {
-    ...mapMutations(['getJokes'])
+    ...mapActions(['fetchJokes'])
+  },
+  mounted: function () {
+    this.fetchJokes()
   }
 }
 </script>
